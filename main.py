@@ -18,7 +18,7 @@ app = Client(
 
 @app.on_message(filters.command("startd") & filters.private & ~filters.edited)
 async def startd_command(_, m: Message):
-    await m.reply_text("Hi, My frnd how are u disable_web_page_preview=True)
+    await m.reply_text("Hi")
 
 
 @app.on_message(filters.command("makejson") & ~filters.edited & filters.private)
