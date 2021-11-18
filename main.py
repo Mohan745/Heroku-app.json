@@ -16,15 +16,13 @@ app = Client(
 )
 
 
-@app.on_message(filters.command("start") & filters.private & ~filters.edited)
-async def start_command(_, m: Message):
-    await m.reply_text("Hi, I am Heroku app.json maker bot.\n\n"
-                       "To start making app.json for your heroku app,\n"
-                       "Press /f", quote=True, disable_web_page_preview=True)
+@app.on_message(filters.command("startd") & filters.private & ~filters.edited)
+async def startd_command(_, m: Message):
+    await m.reply_text("Hi, My frnd how are u disable_web_page_preview=True)
 
 
-@app.on_message(filters.command("f") & ~filters.edited & filters.private)
-async def f_command(bot: Client, m: Message):
+@app.on_message(filters.command("makejson") & ~filters.edited & filters.private)
+async def makejson_command(bot: Client, m: Message):
     editable = await m.reply_text("Please wait ...",
                                   reply_markup=InlineKeyboardMarkup([
                                       [InlineKeyboardButton("Cancel Process", callback_data="cancelProcess")]
@@ -35,7 +33,7 @@ async def f_command(bot: Client, m: Message):
             await bot.send_document(
                 chat_id=m.chat.id,
                 document=app_json,
-                caption="**Made by @HerokuAppJson_Bot**"
+                caption="**ur json done**"
             )
             await editable.edit("Sent `app.json` !!")
             os.remove(app_json)
